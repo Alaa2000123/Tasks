@@ -1,0 +1,26 @@
+﻿@using API.Models;
+@model IEnumerable<Employee>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<a href="@Url.Action("AddEdit","Home",new{Id =0})">Add</a>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Action</th>
+    </tr>
+    @foreach(var Employee in Model)
+    {
+        <tr>
+            <td>@Employee.Id</td>
+            <td>@Employee.Name</td>
+            <td><a href="@Url.Action("AddEdit","Home",new{Id =Employee.Id})">Edit</a></td>
+        </tr>
+    }
+</table>
